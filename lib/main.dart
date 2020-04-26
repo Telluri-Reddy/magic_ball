@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() => runApp(MaterialApp(
       home: BallPage(),
@@ -29,7 +30,8 @@ class _BallPageState extends State<BallPage> {
             backgroundColor: Colors.white12,
             child: Icon(Icons.ac_unit),
             onPressed: () {
-              setState(() {});
+              final player = AudioCache();
+              player.play('wistle.wav');
             },
           ),
         ),
@@ -44,19 +46,6 @@ class _BallPageState extends State<BallPage> {
       ),
       body: Ball(),
     );
-  }
-}
-
-class ButtonAction extends StatefulWidget {
-  @override
-  _ButtonActionState createState() => _ButtonActionState();
-}
-
-class _ButtonActionState extends State<ButtonAction> {
-  int buttonNumber = 1;
-  @override
-  Widget build(BuildContext context) {
-    return Ball();
   }
 }
 
